@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<!-- head -->
+<head>
+    <!-- charset -->
+    <meta charset="UTF-8">
+    <!-- import javascript -->
+    <script src="../vendor/jquery/jquery-1.12.0.js"></script>
+    <!-- import stylesheet -->
+<!--
+    <link rel="stylesheet" href="../vendor/jquery-ui-1.11.4/jquery-ui.structure.css" />
+-->
+    <!-- script -->
+    <script>
+        $(function() {
+            <!-- init -->
+            $('ul#slide1').css('width', 100*$('ul#slide1 li').size()+'px');
+            $('ul#slide1 li:last').prependTo('ul#slide1');
+            $('ul#slide1').css('margin-left', '-100px');
+
+            <!-- prev -->
+            $('#slide1Prev').click(function() {
+                $('#slide1Prev,#slide1Next').hide;
+                $('#slide1').animate({
+                 marginLeft: '+=100px'
+                }, "slow", "swing", 
+                function() {
+                    $('ul#slide1').css('margin-left', '-100px');
+                    $('ul#slide1 li:last').prependTo('ul#slide1');
+                    $('#slide1Prev,#slide1Next').show;
+                })
+            })
+
+            <!-- next -->
+            $('#slide1Next').click(function() {
+                $('#slide1Prev,#slide1Next').hide;
+                $('#slide1').animate({
+                 marginLeft: '-=100px'
+                }, "slow", "swing", 
+                function() {
+                    $('ul#slide1').css('margin-left', '-100px');
+                    $('ul#slide1 li:first').appendTo('ul#slide1');
+                    $('#slide1Prev,#slide1Next').show;
+                })
+            })
+        })
+    </script>
+
+    <style>
+    #carouselWrapper {
+     margin: 100px auto;
+     width: 200px;
+     height: 60px;
+     padding: 5px;
+     position: relative;
+    }
+    #inline-list {
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+    }
+
+    #slide1Prev {
+     position: absolute;
+     top: 30px;
+     left: -20px;
+     cursor:pointer;
+     display: block;
+    }
+    #slide1Next {
+     position: absolute;
+     top: 30px;
+     right: -20px;
+     cursor:pointer;
+     display: block;
+    }
+
+    ul#slide1 {
+     width: 100%;
+     list-style-type: none;
+    }
+    ul#slide1 li {
+     width: 100px;
+     height: 35px;
+     border: solid 1px;
+     padding: 1px;
+     margin: 2px;
+     float: left;
+     display: inline;
+    }
+    </style>
+</head>
+
+<!-- body -->
+<body>
+<div>
+ <p><b>sample1 - hogehoge - </b></p>
+ <div id="carouselWrapper">
+   <span id="slide1Prev"><-</span>
+   <span id="slide1Next">-></span>
+   <div id="inline-list">
+     <ul id="slide1">
+      <li>slide1</li>
+      <li>slide2</li>
+      <li>slide3</li>
+      <li>slide4</li>
+      <li>slide5</li>
+     </ul>
+   </div>
+ </div>
+</div>
+<br />
+<br />
+<hr />
+<div>
+ <a href="../index.html">back to home</a>
+</div>
+</body>
+
+</html>
