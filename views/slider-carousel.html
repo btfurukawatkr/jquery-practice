@@ -13,19 +13,30 @@
     <!-- script -->
     <script>
         $(function() {
+            <!-- set var -->
+            var itemWidth = '100';
             <!-- init -->
-            $('ul#slide1').css('width', 100*$('ul#slide1 li').size()+'px');
+            // calculate and set width for inner-list item.
+            $('ul#slide1').css('width', parseInt(itemWidth)*$('ul#slide1 li').size()+'px');
+            // bring last item in front of first item
             $('ul#slide1 li:last').prependTo('ul#slide1');
-            $('ul#slide1').css('margin-left', '-100px');
+            // adjust margin-left to show first item of list
+            $('ul#slide1').css('margin-left', '-' + itemWidth + 'px');
 
             <!-- prev -->
             $('#slide1Prev').click(function() {
+                // hide prev/next button to prevent double click
                 $('#slide1Prev,#slide1Next').hide;
+                // animate slide-move of item by extending left margin with item width
+                // execute function by call-back
+                // calculate left margin
+                // bring last item in front of first item
+                // show prev/next button
                 $('#slide1').animate({
-                 marginLeft: '+=100px'
+                 marginLeft: "+=" + itemWidth + 'px'
                 }, "slow", "swing", 
                 function() {
-                    $('ul#slide1').css('margin-left', '-100px');
+                    $('ul#slide1').css('margin-left', '-' + itemWidth + 'px');
                     $('ul#slide1 li:last').prependTo('ul#slide1');
                     $('#slide1Prev,#slide1Next').show;
                 })
@@ -35,10 +46,10 @@
             $('#slide1Next').click(function() {
                 $('#slide1Prev,#slide1Next').hide;
                 $('#slide1').animate({
-                 marginLeft: '-=100px'
+                 marginLeft: "-=" + itemWidth + 'px'
                 }, "slow", "swing", 
                 function() {
-                    $('ul#slide1').css('margin-left', '-100px');
+                    $('ul#slide1').css('margin-left', '-' + itemWidth + 'px');
                     $('ul#slide1 li:first').appendTo('ul#slide1');
                     $('#slide1Prev,#slide1Next').show;
                 })
@@ -47,6 +58,7 @@
     </script>
 
     <style>
+    /* wapper area for carousel including prev/next buttons */
     #carouselWrapper {
      margin: 100px auto;
      width: 200px;
@@ -54,12 +66,15 @@
      padding: 5px;
      position: relative;
     }
+    /* wapper for only carousel. use overflow to hide items. */
     #inline-list {
      width: 100%;
      height: 100%;
      overflow: hidden;
     }
 
+    /* style for prev/next buttons */
+    /* left/right value should be a minus value. */
     #slide1Prev {
      position: absolute;
      top: 30px;
@@ -75,6 +90,7 @@
      display: block;
     }
 
+    /* list to make a merry-go-round */
     ul#slide1 {
      width: 100%;
      list-style-type: none;
