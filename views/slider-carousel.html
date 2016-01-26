@@ -57,14 +57,16 @@
                 })
             })
 
-            <!-- sample2:slider -->
+            <!-- sample2:slider with carousel -->
             <!-- init -->
             // calculate and set width for inner-list item.
             $('ul.slide2').css('width', parseInt(itemWidth)*$('ul.slide2 li').size() + 'px');
 
             // window to scroll
             var scrollPane = $('.inline-list');
+            // content to show
             var scrollContent = $('ul.slide2');
+            // scroll setting
             var scrollbar = $('.scroll-bar').slider({
               slide: function(event, ui) {
                   if (scrollContent.width() > scrollPane.width()) {
@@ -73,6 +75,22 @@
                       scrollContent.css('margin-left', '0px');
                   }
               }
+            });
+
+            <!-- sample3:slider1 -->
+            $('.slider1').slider();
+
+            <!-- sample4:slider2 -->
+            var slider2 = $('.slider2').slider({
+                min: 0,
+                max: 200,
+                slide: function(event, ui) {
+                    $('#sample4-value').val(ui.value);
+                }
+            });
+            $('#sample4-value').val($('.slider2').slider('value'));
+            $('#sample4-value').change(function() {
+                slider2.slider('value', this.value);
             });
         })
     </script>
@@ -172,6 +190,19 @@
      </ul>
    </div>
    <div class="scroll-bar"></div>
+ </div>
+</div>
+<br style="clear: both;" />
+<div>
+ <p><b>sample3 - simple slider - </b></p>
+   <div class="slider1" style="width:200px;"></div>
+ </div>
+</div>
+<br style="clear: both;" />
+<div>
+ <p><b>sample4 - simple slider with value - </b></p>
+   <label>slider's value is : </label><input type="text" id="sample4-value" style="width: 30px;" /><br />
+   <div class="slider2" style="width:200px;"></div>
  </div>
 </div>
 <br style="clear: both;" />
