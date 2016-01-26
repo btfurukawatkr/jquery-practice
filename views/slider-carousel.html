@@ -14,11 +14,11 @@
     <script>
         $(function() {
             <!-- set var -->
-            var itemWidth = '100';
+            var itemWidth = '120';
             <!-- sample1:carousel -->
             <!-- init -->
             // calculate and set width for inner-list item.
-            $('ul.slide1').css('width', parseInt(itemWidth)*$('ul.slide1 li').size()+'px');
+            $('ul.slide1').css('width', parseInt(itemWidth)*$('ul.slide1 li').size() + 'px');
             // bring last item in front of first item
             $('ul.slide1 li:last').prependTo('ul.slide1');
             // adjust margin-left to show first item of list
@@ -60,9 +60,10 @@
             <!-- sample2:slider -->
             <!-- init -->
             // calculate and set width for inner-list item.
-            $('ul.slide2').css('width', parseInt(itemWidth)*$('ul.slide2 li').size()+'px');
+            $('ul.slide2').css('width', parseInt(itemWidth)*$('ul.slide2 li').size() + 'px');
 
-            var scrollPane = $('inline-list');
+            // window to scroll
+            var scrollPane = $('.inline-list');
             var scrollContent = $('ul.slide2');
             var scrollbar = $('.scroll-bar').slider({
               slide: function(event, ui) {
@@ -80,8 +81,8 @@
     /* wapper area for carousel including prev/next buttons */
     .carouselWrapper {
      margin-left: 50px;
-     width: 200px;
-     height: 60px;
+     width: 200px; /* width to show */
+     height: 60px; /* height to show */
      padding: 5px;
      position: relative;
     }
@@ -89,7 +90,7 @@
     .inline-list {
      width: 100%;
      height: 100%;
-     /* overflow: hidden; */
+     overflow: hidden;
     }
 
     /* style for prev/next buttons */
@@ -111,16 +112,16 @@
 
     /* list to make a merry-go-round */
     ul.slide1 {
-     width: 600px;
+     width: 100%;
      list-style-type: none;
     }
     ul.slide1 li {
      width: 100px;
-     height: 35px;
-     border: solid 1px;
+     height: 30px;
      margin: 10px;
      float: left;
      display: inline;
+     border: solid 1px;
     }
 
     ul.slide2 {
@@ -129,7 +130,7 @@
     }
     ul.slide2 li {
      width: 100px;
-     height: 35px;
+     height: 30px;
      border: solid 1px;
      margin: 10px;
      float: left;
@@ -167,6 +168,7 @@
       <li>slide3</li>
       <li>slide4</li>
       <li>slide5</li>
+      <li>&nbsp;</li>
      </ul>
    </div>
    <div class="scroll-bar"></div>
