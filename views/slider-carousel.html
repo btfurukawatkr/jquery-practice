@@ -13,9 +13,9 @@
     <!-- script -->
     <script>
         $(function() {
+            <!-- sample1:carousel -->
             <!-- set var -->
             var itemWidth = '120';
-            <!-- sample1:carousel -->
             <!-- init -->
             // calculate and set width for inner-list item.
             $('ul.slide1').css('width', parseInt(itemWidth)*$('ul.slide1 li').size() + 'px');
@@ -56,8 +56,12 @@
                     $('.slide1Prev,.slide1Next').show;
                 })
             })
+        })
 
+        $(function() {
             <!-- sample2:slider with carousel -->
+            <!-- set var -->
+            var itemWidth = '120';
             <!-- init -->
             // calculate and set width for inner-list item.
             $('ul.slide2').css('width', parseInt(itemWidth)*$('ul.slide2 li').size() + 'px');
@@ -76,10 +80,14 @@
                   }
               }
             });
+        })
 
+        $(function() {
             <!-- sample3:slider1 -->
             $('.slider1').slider();
+        })
 
+        $(function() {
             <!-- sample4:slider2 -->
             var slider2 = $('.slider2').slider({
                 min: 0,

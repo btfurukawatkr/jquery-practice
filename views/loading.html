@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<!-- head -->
+<head>
+    <!-- charset -->
+    <meta charset="UTF-8">
+    <!-- import javascript -->
+    <script src="../vendor/jquery/jquery-1.12.0.js"></script>
+    <!-- import stylesheet -->
+<!--
+    <link rel="stylesheet" href="../vendor/jquery-ui-1.11.4/jquery-ui.structure.css" />
+-->
+    <!-- script -->
+    <script>
+    window.onload = function() {
+        $(function() {
+            $('#loading').fadeOut();
+            $('#content').fadeIn();
+        });
+    }
+
+    $(function() {
+        $('#service1').click(function() {
+            $('#service1').prop('disabled', true);
+            $('#loading-service').fadeIn();
+            // tmp code
+            setTimeout(
+                function() {
+                    $('#loading-service').fadeOut();
+                    $('#service1').prop('disabled', false);
+                }
+            , 3000);
+        });
+    });
+    </script>
+    <style>
+    #content {
+     display: none;
+    }
+    #loading {
+     position: absolute;
+     margin: auto;
+    }
+    #loading-service {
+     display: none;
+    }
+    </style>
+</head>
+
+<!-- body -->
+<body>
+<div id="loading">loading...</div>
+
+<div id="content">
+<div>
+ <p><b>sample1 - window.onload - </b></p>
+ show loading when page is opened.<br />
+</div>
+<br />
+<div>
+ <p><b>sample2 - when executing some service in background - </b></p>
+ execute some service by pressing a button, and show loading until that service is done<br />
+ <br />
+ <input type="button" value="execute" id="service1" />&nbsp;<label id="loading-service">Loading...</label>
+</div>
+<br />
+
+<hr />
+<div>
+ <a href="../index.html">back to home</a>
+</div>
+</div>
+
+</body>
+
+</html>
