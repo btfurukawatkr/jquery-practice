@@ -101,6 +101,27 @@
                 slider2.slider('value', this.value);
             });
         })
+
+        $(function() {
+            <!-- sample4:slider2 -->
+            var slider3 = $('.slider3').slider({
+                min: 0,
+                max: 200,
+                values: [0, 200],
+                slide: function(event, ui) {
+                    $('#sample5-from-value').val(ui.values[0]);
+                    $('#sample5-to-value').val(ui.values[1]);
+                }
+            });
+            $('#sample5-from-value').val($('.slider3').slider('values', 0));
+            $('#sample5-to-value').val($('.slider3').slider('values', 1));
+            $('#sample5-from-value').change(function() {
+                slider3.slider('values', 0, this.value);
+            });
+            $('#sample5-to-value').change(function() {
+                slider3.slider('values', 1, this.value);
+            });
+        })
     </script>
 
     <style>
@@ -211,6 +232,13 @@
  <p><b>sample4 - simple slider with value - </b></p>
    <label>slider's value is : </label><input type="text" id="sample4-value" style="width: 30px;" /><br />
    <div class="slider2" style="width:200px;"></div>
+ </div>
+</div>
+<br style="clear: both;" />
+<div>
+ <p><b>sample5 - simple slider with 2 handler - </b></p>
+   <label>slider's value is : </label><input type="text" id="sample5-from-value" style="width: 30px;" />～<input type="text" id="sample5-to-value" style="width: 30px;" /><br />
+   <div class="slider3" style="width:200px;"></div>
  </div>
 </div>
 <br style="clear: both;" />
