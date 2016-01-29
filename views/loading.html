@@ -32,6 +32,26 @@
             , 3000);
         });
     });
+
+    $(function() {
+        $('#service2').click(function() {
+            $('#service2').prop('disabled', true);
+            $('#loading-service2').fadeIn(
+              function() {
+                $.ajax({
+                  url: '../scripts/fakeservice.js',
+                  dataType: 'script',
+                }).done(function(data) {
+                  $('#service2').prop('disabled', false);
+                  $('#loading-service2').html("Loading...").fadeOut();
+                }).fail(function(data) {
+                  $('#service2').prop('disabled', false);
+                  $('#loading-service2').empty();
+                });
+              }
+            );
+        });
+    });
     </script>
     <style>
     #content {
@@ -42,6 +62,9 @@
      margin: auto;
     }
     #loading-service {
+     display: none;
+    }
+    #loading-service2 {
      display: none;
     }
     </style>
@@ -62,6 +85,14 @@
  execute some service by pressing a button, and show loading until that service is done<br />
  <br />
  <input type="button" value="execute" id="service1" />&nbsp;<label id="loading-service">Loading...</label>
+</div>
+<br />
+<div>
+ <p><b>sample3 - when executing some service in background using ajax - </b></p>
+ execute some service by pressing a button, and show loading until that service is done<br />
+ to execute this method, you'll have to close all chrome browsers first, than execute chrome from terminal with --allow-file-access-from-files option because of the security issues.<br />
+ <br />
+ <input type="button" value="execute" id="service2" />&nbsp;<label id="loading-service2">Loading...</label>
 </div>
 <br />
 
