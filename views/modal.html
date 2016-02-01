@@ -5,15 +5,30 @@
     <!-- charset -->
     <meta charset="UTF-8">
     <!-- import javascript -->
-<!--
     <script src="../vendor/jquery/jquery-1.12.0.js"></script>
--->
+    <script src="../vendor/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
     <!-- import stylesheet -->
-<!--
-    <link rel="stylesheet" href="../vendor/jquery-ui-1.11.4/jquery-ui.structure.css" />
--->
+    <link rel="stylesheet" href="../vendor/bootstrap-3.3.5-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../vendor/bootstrap-3.3.5-dist/css/bootstrap-theme.css" />
     <!-- script -->
     <script>
+    $(function() {
+      $('#showModal1').click(function() {
+        $('#myModal').modal({backdrop: 'static'});
+      });
+      $('#cancel').on('click', function () {
+        $('#myModal').modal('hide');
+      });
+    });
+
+    $(function() {
+      $('#showModal2').click(function() {
+        $('#myModal2').modal({backdrop: 'static'});
+      });
+      $('#cancel2').on('click', function () {
+        $('#myModal2').modal('hide');
+      });
+    });
     </script>
 </head>
 
@@ -21,7 +36,57 @@
 <body>
 <div>
  <p><b>sample1 - hogehoge - </b></p>
- hogehoge<br />
+
+<input type="text" id="input1" /><br />
+<input type="text" id="input2" /><br />
+<input type="text" id="input3" /><br />
+<button type="button" id="showModal1">Show modal1</button>
+
+<!-- set tabindex="-1" to disable focus to go outside of moal area -->
+<div id="myModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      <p>
+      ...<br />
+      </p>
+        <input type="text" id="input-m1" /><br />
+        <input type="text" id="input-m2" /><br />
+        <input type="text" id="input-m3" /><br />
+      <hr>
+      <button id="cancel">cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<br />
+<div>
+ <p><b>sample2 - hogehoge - </b></p>
+
+<input type="text" id="input12" /><br />
+<input type="text" id="input22" /><br />
+<input type="text" id="input32" /><br />
+<button type="button" id="showModal2">Show modal2</button>
+
+<div id="myModal2" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      <p>
+      ...<br />
+      </p>
+        <input type="text" id="input-m12" /><br />
+        <input type="text" id="input-m22" /><br />
+        <input type="text" id="input-m32" /><br />
+      <hr>
+      <button id="cancel2">cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 <br />
 <hr />
