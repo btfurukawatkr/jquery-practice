@@ -17,20 +17,17 @@
         $('#autocompleteInput').autocomplete({
             source: function(req, res) {
                 var inputVal = req.term;
-                
-                if (inputVal.substring(inputVal.length-1,inputVal.length) == '@') {
-                  var matcher = new RegExp('^' + inputVal, 'i');
-                  res(source_list);
-                } else {
-                  return;
-                }
+                var reg_exp = inputVal.substring(inputVal.indexOf('@'),inputVal.length);
+                var matcher = new RegExp('^' + reg_exp, 'i');
+                res($.grep(source_list, function(item) {
+                  return matcher.test(item);
+                }));
             },
             select: function(event, ui) {
                 this.value = this.value.substring(0, this.value.indexOf('@')) + ui.item.value;
                 return false;
             },
             focus: function(event, ui) {
-                this.value = this.value.substring(0, this.value.indexOf('@')) + ui.item.value;
                 return false;
             },
             autoFocus: true,
