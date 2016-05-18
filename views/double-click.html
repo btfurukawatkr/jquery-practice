@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<!-- head -->
+<head>
+    <!-- charset -->
+    <meta charset="UTF-8">
+    <!-- import javascript -->
+    <script src="../vendor/jquery/jquery-1.12.0.js"></script>
+    <!-- import stylesheet -->
+<!--
+    <link rel="stylesheet" href="../vendor/jquery-ui-1.11.4/jquery-ui.structure.css" />
+-->
+    <!-- script -->
+    <script>
+    var sum = 1;
+    $(function() {
+      $('#button1').on('click', function() {
+         $('#button1').prop('disabled', true);
+      });
+    });
+
+    $(function() {
+      $('a').on('click', function() {
+         return false;
+      });
+    });
+    </script>
+</head>
+
+<!-- body -->
+<body>
+<div>
+ <p><b>sample1 - disable button double click - </b></p>
+ <button id="button1">click</button><span id="clicked_sum" style="margin-left: 10px;">0</span><br />
+ <a href="http://10.68.254.64:8888/" id="link-test">test</a>
+</div>
+<br />
+<hr />
+<div>
+ <a href="../index.html">back to home</a>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<!-- head -->
+<head>
+    <!-- charset -->
+    <meta charset="UTF-8">
+    <!-- import javascript -->
+    <script src="../vendor/jquery/jquery-1.12.0.js"></script><!-- jquery -->
+    <script src="../vendor/slick/slick.js"></script><!-- slick -->
+    <!-- import stylesheet -->
+    <link rel="stylesheet" href="../vendor/slick/slick.css" />
+    <link rel="stylesheet" href="../vendor/slick/slick-theme.css" />
+    <!-- script -->
+    <script>
+      $(function() {
+        $(".sample1").slick({
+          dots: true,
+          slidesToShow: 4,
+          slidesToScroll: 1
+        });
+
+        $(".sample2").slick({
+          dots: true,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2000
+        });
+
+        $(".sample3").slick({
+          dots: true,
+          centerMode: true,
+          slidesToShow: 3
+        });
+
+        $(".sample4a").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          asNavFor: '.sample4b',
+          arrows: false,
+          fade: true
+        });
+        $(".sample4b").slick({
+          dots: true,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          asNavFor: '.sample4a',
+          centerMode: true,
+          focusOnSelect: true
+        });
+      });
+    </script>
+
+    <style>
+    .content {
+      width: 600px;
+      margin: auto;
+      padding: 20px;
+      background-color: #DDDDDD;
+    }
+    .sliderP {
+      height: 100px;
+      width: 580px;
+      margin: 10px auto;
+      position: relative;
+    }
+    .slider h3 {
+      background-color: #FFFFFF;
+      padding: 3px;
+      margin: 3px;
+      text-align: center;
+    }
+    .sample3 .slick-current h3{
+      color:#e67e22;
+    }
+
+    </style>
+</head>
+
+<!-- body -->
+<body>
+</body>
+<div class="content">
+
+<div class="sliderP">
+<div class="slider sample1">
+  <div><h3>1</h3></div>
+  <div><h3>2</h3></div>
+  <div><h3>3</h3></div>
+  <div><h3>4</h3></div>
+  <div><h3>5</h3></div>
+  <div><h3>6</h3></div>
+</div>
+</div>
+<hr>
+<div class="sliderP">
+<div class="slider sample2">
+  <div><h3>1</h3></div>
+  <div><h3>2</h3></div>
+  <div><h3>3</h3></div>
+  <div><h3>4</h3></div>
+  <div><h3>5</h3></div>
+  <div><h3>6</h3></div>
+</div>
+</div>
+<hr>
+<div class="sliderP">
+<div class="slider sample3">
+  <div><h3>1</h3></div>
+  <div><h3>2</h3></div>
+  <div><h3>3</h3></div>
+  <div><h3>4</h3></div>
+  <div><h3>5</h3></div>
+  <div><h3>6</h3></div>
+</div>
+</div>
+<hr>
+<div class="sliderP">
+<div class="slider sample4a">
+  <div><h3>11</h3></div>
+  <div><h3>21</h3></div>
+  <div><h3>31</h3></div>
+  <div><h3>41</h3></div>
+  <div><h3>51</h3></div>
+  <div><h3>61</h3></div>
+</div>
+<div class="slider sample4b">
+  <div><h3>1</h3></div>
+  <div><h3>2</h3></div>
+  <div><h3>3</h3></div>
+  <div><h3>4</h3></div>
+  <div><h3>5</h3></div>
+  <div><h3>6</h3></div>
+</div>
+
+</div>
+</html>
